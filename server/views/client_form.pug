@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+  form(action='/clients/'+action+'/'+id, method='POST')
+    div.form-group
+      label Mac Address
+      input.form-control(type='text', name='mac_address', required, value=client.mac_address)/
+    div.form-group
+      label ip Address
+      input.form-control(type='text', name='ip_address', required, value=client.ip_address)/
+    div.checkbox
+      label
+        input(type='checkbox', name='active', , checked=client.active)/ Is Active?
+    input.btn.btn-primary(type='submit', href='/clients', value='Save Client')/
+
+block footer
+  a.btn.btn-default.footer-button(href='/clients') Back

@@ -1,0 +1,31 @@
+extends layout.pug
+
+block content
+  if (_.isEmpty(clients))
+    p no records to show.
+  else
+    div.table-responsive
+      table.table.table-striped
+        thead
+          tr
+            th Mac Address
+            th Ip Address
+            th Active
+            th Actions
+        tbody
+          each client in clients
+            tr(id=client.id)
+              td= client.mac_address
+              td= client.ip_address
+              td
+                if client.active
+                  i.fa.fa-check-circle.text-success(aria-hidden='true')
+                else
+                  i.fa.fa-times-circle.text-danger(aria-hidden='true')
+              td
+                a.btn.btn-primary.action-button(href='/clients/edit/'+client.id, title='Edit'): i.fa.fa-pencil-square-o 
+                a.btn.btn-danger.action-button(href='/clients/remove/'+client.id, title='Remove'): i.fa.fa-trash
+                button.btn.btn-default.action-button.viewlog(href='', title='View Log'): i.fa.fa-eye
+      
+block footer
+  a.btn.btn-default.footer-button(href='/clients/add') Add Client

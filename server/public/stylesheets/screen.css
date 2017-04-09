@@ -1,0 +1,16 @@
+th, td {
+    width: 25%;
+    text-align: center;
+}
+
+.footer-button {
+    width: 100%;
+}
+
+td > .btn-primary, .btn-danger {
+    margin-right: 0.5rem;
+}
+
+.action-button {
+    padding: 1rem;
+}
